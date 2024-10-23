@@ -32,12 +32,17 @@ public class FilmsClient {
 				System.out.println("Title: " + resultFilm.get().getTitle());
 				System.out.println("Year: " + resultFilm.get().getYear());
 				System.out.println("Cast amount: " + resultFilm.get().getCast().size());
-				System.out.println("Cast: " + resultFilm.get().getCast());
+				System.out.println("Cast: ");
+				List<String> cast = resultFilm.get().getCast();
+				for (String currentCast : cast) {
+					System.out.println("    - " + currentCast);
+				}
 			} else {
 				System.out.println("No such film");
 			}
+			System.exit(0);
 		} else {
-			System.out.println("error");
+			throw new RuntimeException("Error fetching data");
 		}
 	}
 
